@@ -1,0 +1,224 @@
+@charset "UTF-8";
+$dark-blue: #4b638c;
+$sky-blue: #6fa6eb;
+$alarm-blue: #6f86ce;
+$balance-blue: #453697;
+$alarm-yellow: #f0d197;
+$alarm-green: #a0dbd3;
+
+body {
+  background-color: $dark-blue !important;
+  font-Family: 'Helvetica' !important;
+  .blue {
+    background-color: $alarm-blue;
+  }
+  .yellow {
+    background-color: $alarm-yellow;
+  }
+  .green {
+    background-color: $alarm-green;
+  }
+  .alarmContainer {
+    background-color: $dark-blue;
+    text-align: center;
+    padding: 10px 0px;
+    .alarmForm {
+      background-color: $sky-blue;
+      padding: 5%;
+      overflow: hidden;
+
+      h1 {
+        text-transform: uppercase;
+        font-size: 35px;
+        font-style: italic;
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+      h5 {
+        text-transform: uppercase;
+        font-size: 15px;
+        font-style: italic;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .form-row {
+        margin: 15px 150px;
+        border-radius: 10px;
+        .form-group {
+          padding: 5px;
+          input.timeInput  {
+            position: relative;
+            top: 15%;
+            float: right;
+            background-color: unset !important;
+            border: unset;
+            font-size: 25px;
+            border-radius: 5px;
+            outline-width: 0;
+          }
+          label.title {
+            position: relative;
+            top: 15%;
+            font-weight: bold; 
+            padding: 0px 36px;
+            float: right;
+            width: 100%;
+            text-align: right;
+            font-size: 15px;
+          }
+          .button-container {
+            .set-btn {
+              position: relative;
+              top: 30%;
+              padding: 15px 35px;
+              font-size: 15px;
+              border-radius: 15px;
+              font-weight: bold;
+              float: left;
+              box-shadow: none !important;
+              box-shadow: 0 9px #999;
+              margin-right: 10px;
+  
+              &:hover {
+                color: #ffffff;
+                background-color: #928f8f;
+                border: solid thin transparent;
+                transition: all ease-in .1s;
+              }
+              &:active {
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+              }
+            }
+            padding: 10px;
+            position: relative;
+            top: 20%;
+          }
+          
+          label.countDown {
+            position: relative;
+            font-size: 20px;
+            top: 40%;
+            color: #7e7a7a;
+            font-weight: bolder;
+          }
+        }
+        .inputGroup {
+          padding: 20px 0px;
+        }
+      }
+    }
+    .balanceForm {
+      position: absolute;
+      height: 500px;
+      background-color: $balance-blue;
+      padding: 5% 0 !important;
+
+      .balanceTable th, tr, td{
+        padding: 10px 20px;
+      }
+
+      .address {
+        cursor: pointer;
+      }
+    }
+    
+  }
+  .modal {
+    display: none;
+
+    /* Hidden by default */
+    position: fixed;
+
+    /* Sit on top */
+    padding-top: 100px;
+
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    /* Full width */
+    height: 100%;
+
+    /* Full height */
+    overflow: auto;
+
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+
+    /* Black w/ opacity */
+
+    /* Modal Content */
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 100%;
+
+      .modal-header {
+        display: block;
+        text-align: center;
+        .modal-title {
+          font-weight: bolder;
+          letter-spacing: 1px;
+        }
+        
+      }
+
+      #alarm {
+        width: 280px;
+        height: 280px;
+      }
+      .modal-footer {
+        display: block !important;
+        text-align: center;
+      }
+    }
+
+    .modal.fade{
+      opacity:1;
+    }
+    .modal.fade .modal-dialog {
+       -webkit-transform: translate(0);
+       -moz-transform: translate(0);
+       transform: translate(0);
+    }
+
+    /* The Close Button */
+    .close-btn {
+      color: #000000;
+      background-color: #ffffff;
+      font-size: 18px;
+      font-weight: bolder;
+      padding: 12px;
+      border: solid thin #000000;
+      border-radius: 10px;
+
+      &:hover, &:focus {
+        color: #ffffff;
+        background-color: #aaaaaa;
+        border: solid thin transparent;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+  }
+  .footer {
+    text-align: center;
+  }
+
+
+  //login
+  #login-wrapper {
+    background-color: white;
+    padding: 10px;
+    justify-content: center;
+  }
+}

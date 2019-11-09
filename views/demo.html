@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Web Alarm</title>
+        <meta http-equiv="X-UA-sm2-bar-uitible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <link rel="icon" sizes="57x57" href="img/fav.png">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+         <!-- External Libraries -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/animation.css">
+    </head>
+    <body onload="startTime()">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="about" target="external" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a  href="login" target="external" class="nav-link login-btn">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="user" target="external" class="nav-link">User Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="dashboard" target="external" class="nav-link">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="container-fluid container alarmContainer">
+                    <form class="balanceForm alarmForm">
+                        <h1>Addresses (ETH)</h1>
+                        <h5>If you like our project, please award some ETH :)</h5>
+                        <table class="table balanceTable">
+                            <thead>
+                                <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Balance</th>
+                                <th scope="col">Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>Estella</td>
+                                <td id="EstellaBalance" ></td>
+                                <td id="EstellaAddr" class="address" name="0x0f5Cb637B39d6D7c60497F51a263b5D6de17B343"></td>
+                                </tr>
+                                <tr>
+                                <td>Shermeen</td>
+                                <td id="ShermeenBalance" ></td>
+                                <td id="ShermeenAddr" class="address" name="0xCf7eec9A403E75B7aC218F7bD4C9eA5b76961534"></td>
+                                </tr>
+                                <tr>
+                                <td>Richard</td>
+                                <td id="RichardBalance" ></td>
+                                <td id="RichardAddr" class="address" name="0x4308C4533006420aCf64430442caa4653D2F2355"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="container-fluid container alarmContainer">
+                    <form class="alarmForm">
+                        <h1 id="title">Wake Me Up, I'm Studying!</h1>
+                        <h5>Please set 3 alarms for today's schedule</h5>
+                        <div class="form-row blue">
+                            <div class="form-group col-md-4 inputGroup">
+                                <input class="timeInput" type="time" id="wakeUpTime" value="07:00">
+                                <label class="title">WAKE UP TIME</label>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <div class="d-flex flex-row mb-3 button-container">
+                                    <button type="button" name="wakeUpTime" onclick="setUpAlarm(this.name)" class="set-btn btn btn-light mb-2">SET</button>
+                                    <button type="button" name="wakeUpTime" onclick="clearAlarm(this.name)" class="set-btn btn btn-light mb-2">CLEAR</button>
+                                </div> 
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label id="wakeUpTimeCountDown" class="countDown"></label>
+                            </div>
+                        </div>
+        
+                        <div class="form-row yellow">
+                            <div class="form-group col-md-4 inputGroup">
+                                <input class="timeInput" type="time" id="lunchTime" value="12:00">
+                                <label class="title">LUNCH TIME</label>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <div class="d-flex flex-row mb-3 button-container">
+                                    <button type="button" name="lunchTime" onclick="setUpAlarm(this.name)" class="set-btn btn btn-light mb-2">SET</button>
+                                    <button type="button" name="lunchTime" onclick="clearAlarm(this.name)" class="set-btn btn btn-light mb-2">CLEAR</button>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label id="lunchTimeCountDown" class="countDown"></label>
+                            </div>
+                        </div>
+                        <div class="form-row green">
+                            <div class="form-group col-md-4 inputGroup">
+                                <input class="timeInput" type="time" id="napTime" value="14:00">
+                                <label class="title">NAP TIME</label>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <div class="d-flex flex-row mb-3 button-container">
+                                    <button type="button" name="napTime" onclick="setUpAlarm(this.name)" class="set-btn btn btn-light mb-2">SET</button>
+                                    <button type="button" name="napTime" onclick="clearAlarm(this.name)" class="set-btn btn btn-light mb-2">CLEAR</button>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label id="napTimeCountDown" class="countDown"></label>
+                            </div>
+                        </div>
+                        <div id="txt"></div>
+                        <div id="myModal" class=" myModal modal fade" tabindex="1" role="dialog" data-toggle="modal">
+                            <div id="clock" class="modal-dialog tada animated" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="alarm-modal-title">WAKE UP </h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img id="alarm" src="img/alarm.png" alt="Alarm Image">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button id="closingAlarm" type="button" class="btn btn-secondary close-btn" data-dismiss="modal">CLOSE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="alertModal" class=" myModal modal fade" tabindex="1" role="dialog" data-toggle="modal">
+                            <div id="alert" class="modal-dialog heartBeat animated" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="alarm-modal-title">ALERT</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p id="msg"></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button id="closingAlarm" type="button" class="btn btn-secondary close-btn" data-dismiss="modal">CLOSE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>Copyright &copy 2019 Shermeen Kazi, Estella Yeung, Ziming Qin</p>
+        </footer>
+        <script>
+            function setUpAlarm(name) {
+                if (localStorage.setItem(name + 'IsOn', true)) {
+                    alert(name, 'duplicate')                
+                }
+                else {
+                    let val = $('#' + name).val()
+                    if (val !== undefined) {
+                        localStorage.setItem(name, val)
+                        localStorage.setItem(name + 'IsOn', true)
+                    }
+                    $('#' + name).closest('.form-row').addClass('bounce animated')
+
+                    // Create Countdown
+                    let now = new Date().getTime()
+                    let alarm = moment(val, 'hh:mm:a').format('lll')
+                    alarm = new Date(alarm).getTime()
+                    let countDown = setInterval(function(){
+                        console.log('looping! :', new Date(now).getMinutes() ,new Date(alarm).getMinutes())
+                        if (now < alarm && localStorage.getItem(name + 'IsOn') === 'true') {
+                            console.log('set success!')
+                            renderCountdown(name, now, alarm)
+                            now = new Date().getTime()
+                        }
+                        else if (new Date(now).getHours() === new Date(alarm).getHours() && new Date(now).getMinutes() === new Date(alarm).getMinutes()) {
+                            console.log('times up')
+                            ringAlarm(name)
+                            hideCountdown(name)
+                            clearInterval(countDown)
+                        }
+                        else if (localStorage.getItem(name + 'IsOn') === 'false') {
+                            console.log('clear success')
+                            hideCountdown(name)
+                            clearInterval(countDown)
+                        }
+                        else {
+                            clearAlarm(name)
+                            hideCountdown(name)
+                            clearInterval(countDown)
+                            alert(name, 'invalid')
+                        }
+                    }, 1000);
+                }
+            }
+
+            function clearAlarm(name) {
+                console.log('this is name: ', name)
+                localStorage.setItem(name+'IsOn', 'false')
+            }
+            
+            function alert(name, mode) {
+                if (mode === 'invalid') {
+                    let current = $('#txt').text()
+                    $('#msg').text('Invald input. Please set a valid time\n (from ' + current + ' to 23:59:59)')
+                    $('#alertModal').modal();
+                }
+                else if (mode === 'duplicate') {
+                    $('#msg').text('Duplicate alarm! Please clear the previous one then set')
+                    $('#alertModal').modal();
+                }
+            }
+    
+            // This is the current Time - Shermeen 9/17/19
+            function startTime() {
+                var today = new Date();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+            
+                document.getElementById('txt').innerHTML =
+                h + ":" + m + ":" + s;
+                var t = setTimeout(startTime, 500);
+            }
+            function checkTime(i) {
+                if (i < 10) {i = "0" + i};
+                return i;
+            }
+
+            function renderCountdown(name, val, alarm) {
+                let diffTimestamp = Math.abs(alarm - val)
+                let diffHour =  Math.floor(diffTimestamp / 3600000)
+                if (diffHour < 10) {
+                    diffHour = '0' + diffHour 
+                }
+                let diffMin = new Date(diffTimestamp).getMinutes()
+                if (diffMin < 10) {
+                    diffMin = '0' + diffMin 
+                }
+                let diffSec = new Date(diffTimestamp).getSeconds()
+                if (diffSec < 10) {
+                    diffSec = '0' + diffSec 
+                }
+                if ($)
+                $('#' + name + 'CountDown').text(diffHour + ':' + diffMin + ':' + diffSec)
+                $('#' + name + 'CountDown').show()
+            }
+
+            function hideCountdown(name) {
+                $('#' + name + 'CountDown').hide()
+            }
+
+            function ringAlarm(name) {
+                if (name === 'wakeUpTime') {
+                    $('.alarm-modal-title').text('Morning Morning!')
+                }
+                else if (name === 'lunchTime') {
+                    $('.alarm-modal-title').text('Time to eat!')
+                }
+                if (name === 'napTime') {
+                    $('.alarm-modal-title').text('Nap time!')
+                }
+                
+                $('#myModal').modal();
+                let ring = setInterval(function(){
+                    $('#clock').toggleClass('tada animated')
+                    $('#closingAlarm').on('click', () => {
+                        clearInterval(ring)
+                    })
+                }, 3000);
+                
+            }
+        </script>
+    <!-- External Libraries -->
+    <script type="text/javascript" src="js/jquery-3-3-1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
