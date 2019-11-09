@@ -19,8 +19,4 @@ Enze Si
 
 ## Our github repo ##
 https://github.com/enzesi/ETHWaterloo
-
-# Module needed to view project ##
-Metamask
-npm 
-http-server
+2019 ETHWaterloo project for ThunderCore Company
