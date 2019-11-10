@@ -15,7 +15,8 @@ $(document).ready( async function() {
         $('#msg').text('Please switch to ropsten testnet and refresh page!')
         $('#alertModal').modal();
       }
-      //dashboard
+      //demo
+      
     }
     else {
       $('#msg').text('No web3 connection found Please use metamask !')
