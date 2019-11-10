@@ -20,24 +20,12 @@ app.get('/', function(req, res) {
   res.render('entry')
 })
 
-app.get('/login', function(req, res) {
-  res.render('login')
-})
-
-app.get('/dashboard', function(req, res) {
-  res.render('dashboard')
-})
-
-app.get('/user', function(req, res) {
-  res.render('user')
-})
-
 app.get('/about', function(req, res) {
   res.render('about')
 })
 
-app.get('/logOut', function(req, res) {
-  res.render('logOut')
+app.get('/demo', function(req, res) {
+  res.render('demo')
 })
 
 
