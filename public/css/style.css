@@ -142,11 +142,16 @@ body {
   body ul li span:nth-child(1) {
     /* position: relative;
   left: -10px; */
-    width: 200px; }
+    width: 100px; }
   body ul li span:nth-child(2) {
     /* position: relative;
   left: -10px; */
-    width: 200px; }
+    width: 100px; }
+    body ul li span:nth-child(3) {
+      /* position: relative;
+    left: -10px; */
+      width: 200px; }
+
   body ul li:hover {
     transform: scale(1.05);
     background: rgba(255, 255, 255, 0.9); }

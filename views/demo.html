@@ -1,75 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en" class="no-js">
- <head>
-  <meta charset="utf-8"/>
-  <title>Shimmer</title>
-        <meta http-equiv="X-UA-sm2-bar-uitible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <link rel="icon" sizes="57x57" href="img/fav.png">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-      
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="css/animation.css">
-    </head>
-                </ul>
-            </div>
-        </nav>
-
-                    <ul class="index-ul">
-                        <form>
-                            <li>
-                                <span>Name</span>
-                                <span>Balance</span>
-                                <span>Address</span>
-                            </li>
-                        </form>
-                    </ul>
-
-                    <form class="balanceForm alarmForm">
-                        <h1>Addresses (ETH)</h1>
-                        <h5>If you like our project, please award some TT :)</h5>
-                        <table class="table balanceTable">
-                            <thead>
-                                <tr>
-                                <th scope="col" class="effect">Name</th>
-                                <th scope="col" class="effect">Balance</th>
-                                <th scope="col" class="effect">Address</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <td class="effect">Enze</td>
-                                <td id="EnzeBalance">0</td>
-                                <td id="EnzeAddr" class="address" name="0x0f5Cb637B39d6D7c60497F51a263b5D6de17B343">0x0f5Cb637B39d6D7c60497F51a263b5D6de17B343</td>
-                                </tr>
-                                <tr>
-                                <td>Richard</td>
-                                <td id="RichardBalance">0</td>
-                                <td id="RichardAddr" class="address" name="0x4308C4533006420aCf64430442caa4653D2F2355">0x4308C4533006420aCf64430442caa4653D2F2355</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </form>
-
-            <div class="col-lg-9">
-                <div class="container-fluid container alarmContainer">
-                    <form class="alarmForm">
-                        <h5 id="title">ThunderCore Image</h5>
-                        
-                    </form>
-                    <img id="TTimage" src="img/pic/50.png" width="400" height="400">
-                    <button id="demo">Start demo</button>
-                </div>
-            </div>
-        </div>
-        
-        <footer class="footer">
-            <p>Copyright &copy 2019 Enze Si, Ziming Qin</p >
-        </footer>
-    </body>
-</html> -->
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -81,25 +9,30 @@
     <ul class="index-ul">
         <h2 class="shimmer">Shimmer Wallet</h2>
       <form>
-        <button class="select-button" id="demo">Send</button>
-        <div>Click button to send 50 transactions or scan QR code to send a transaction</div>
+        
+        <div>Click button to send 50 TT transactions on main net or scan QR code to send a transaction</div>
+        <div>The image below will get brighter and clearer after the completion after each transaction</div>
         <li>
             <span>Name</span>
             <span>Balance</span>
+            <span>Level</span>
             <span>Address</span>
         </li>
         <li>
             <span>Enze</span>
             <span id="EnzeBalance">&nbsp&nbsp&nbsp&nbsp&nbsp0</span>
-            <span id="EnzeAddr">0x0f5Cb637B39d6D7c60497F51a263b5D6de17B343</span>
+            <span id="EnzeLevel">&nbsp&nbsp&nbsp&nbsp&nbsp1</span>
+            <span id="EnzeAddr">0xd302251CD0bCF47f39F810a782Dd33384f62fEc5</span>
         </li>
         <li>
             <span>Richard</span>
             <span id="RichardBalance">&nbsp&nbsp&nbsp&nbsp&nbsp0</span>
-            <span id="RichardAddr">0x4308C45FF006420aCf64430442cAa4653D2F2355</span>
+            <span id="RichardLevel">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp1</span>
+            <span id="RichardAddr">0x4308C4533006420aCf64430442caa4653D2F2355</span>
         </li>
       </form>
-      <img id="TTimage" src="img/pic/50.png" width="400" height="400" class="TT">
+      <button class="select-button" id="demo">Send</button>
+      <img id="TTimage" src="img/pic/image-50.png" width="400" height="400" class="TT">
     </ul>
     <img src="img/QRcode.jpg" width="200" height="200" class="QR">
     <footer id="footer">Copyright &copy 2019 Enze Si, Ziming Qin</footer>

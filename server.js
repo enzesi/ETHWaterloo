@@ -51,12 +51,13 @@ app.get('/demo', function(req, res) {
 app.post('/startSending', async function(req, res) {
   let account = req.body.account
   console.log('receiver: ', account, )
+  let count = 0;
   instance.eth.sendTransaction({
     from: sender, 
     to: account,
-    value: '1000000000000000',
+    value: '100000000000000000',
     gasPrice: ropstenGasprice,
-    gas:2100000,
+    gas:1100000,
   })
   .on('transactionHash', function(hash){
     console.log('hash: ', hash)
@@ -67,10 +68,13 @@ app.post('/startSending', async function(req, res) {
   .on('confirmation', function(confirmationNumber, receipt){ 
     console.log('confirm and receipt: ', confirmationNumber, receipt)
     res.status(200).json({msg: 'success' }).end()
-   })
+    return
+    })
   .on('error', function() {
     res.status(400).json({msg: 'fail' }).end()
+    return
   });
+  
 })
 
 
