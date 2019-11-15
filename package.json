@@ -16,6 +16,8 @@
     "dotenv": "^8.2.0",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "node-sass": "^4.13.0",
+    "serve-favicon": "^2.5.0",
     "truffle-hdwallet-provider": "^1.0.17",
     "web3": "^1.2.2"
   },

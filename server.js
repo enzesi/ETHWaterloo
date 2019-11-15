@@ -1,6 +1,7 @@
 const port = 8008;
 const express = require('express') 
 const app = express();
+const favicon = require('serve-favicon')
 const ejs = require('ejs')
 const path = require('path')
 require('dotenv').config();
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'node_modules')))
 app.use('/img',express.static(path.join(__dirname, 'public/img')))
 app.use('/js',express.static(path.join(__dirname, 'public/js')))
 app.use('/css',express.static(path.join(__dirname, 'public/css')))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 const privateKey = process.env.PRIVATE_KEY
 const providerUrl = process.env.PROVIDER
