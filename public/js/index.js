@@ -15,19 +15,61 @@ $(document).ready( async function() {
         $('#alertModal').modal();
       }
       let quality = 50;
+      let level = 2;
+
+      //init
+
+
+      let enzeBalance = await web3.eth.getBalance('0xd302251CD0bCF47f39F810a782Dd33384f62fEc5')
+      enzeBalance = web3.utils.fromWei(enzeBalance, "ether") 
+      let richardBalance = await web3.eth.getBalance('0x4308C4533006420aCf64430442caa4653D2F2355')
+      richardBalance = web3.utils.fromWei(richardBalance, "ether") 
+      document.getElementById("EnzeBalance").innerHTML = enzeBalance;
+      document.getElementById("RichardBalance").innerHTML = richardBalance;
+
+
+
       //demo
       $("#demo").on('click', async function() {
         let account = (await web3.eth.getAccounts())[0]
-        
+        let count = 0
+        while ( count < 50) {
+          await send(account)
+          await delay(350)
+          count++;
+        }
+      })
+      //change function
+      async function change() {
+        if (quality >= 2) {
+            quality = quality - 1;
+            console.log(quality);
+            document.getElementById("TTimage").src = "img/pic/image-" + quality + ".png";
+            document.getElementById("EnzeLevel").textContent = "\u00A0\u00A0\u00A0\u00A0\u00A0" + level;
+            level = level + 1;
+        }
+        let account = (await web3.eth.getAccounts())[0]
+        let balance = await web3.eth.getBalance(account)
+        balance = web3.utils.fromWei(balance, "ether") 
+        console.log('balance right now: ', balance)
+        document.getElementById("EnzeBalance").innerHTML = balance;
+
+        let richardBalance = await web3.eth.getBalance('0x4308C4533006420aCf64430442caa4653D2F2355')
+        richardBalance = web3.utils.fromWei(richardBalance, "ether") 
+        document.getElementById("RichardBalance").innerHTML = richardBalance;
+      }
+
+      //ajax call
+      async function send(account) {
         try {
           $.ajax({
             type: "POST",
             url: '/startSending',
             data: {account: account},
             dataType: 'json',
-            success: function(result) {
+            success: async function(result) {
               console.log('result! :', result)
-              change()
+              await change()
             },
             error: function(error) {
               console.error('error:', error)
@@ -37,36 +79,11 @@ $(document).ready( async function() {
         catch(error) {
           console.error('api error: ', error)
         }
-       
-        
-      })
+      }
 
-
-     
-      //change function
-      async function change() {
-        if (quality >= 2) {
-            quality = quality - 1;
-            console.log(quality);
-            document.getElementById("TTimage").src = "img/pic/" + quality + ".png";
-        }
-        let account = (await web3.eth.getAccounts())[0]
-        let balance = await web3.eth.getBalance(account)
-        // , function(error, balance) {
-        //   if (error) {
-        //     console.error('get balance error: ', error)
-        //   }
-          balance = web3.utils.fromWei(balance, "ether") 
-          console.log('balance right now: ', balance)
-
-          document.getElementById("EnzeBalance").innerHTML = balance;
-        // })
-        
-        /* while (quality > 1) {
-            quality = quality - 1;
-            document.getElementById("TTimage").src = "img/" + quality + ".png";
-        } */
-    }
+      async function delay(ms) {
+        return await new Promise(resolve => setTimeout(resolve, ms));
+      }
     }
     else {
       $('#msg').text('No web3 connection found Please use metamask !')
